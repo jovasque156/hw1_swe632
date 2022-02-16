@@ -36,9 +36,7 @@ const Monitoring = () => {
   const FilterDataName = (prompt) => {
     let final = data.filter(students => {
         return(
-          students.
-            first_name.toLowerCase().includes(prompt.toLowerCase()) || students.last_name.toLowerCase().includes(prompt.toLowerCase()) || students.id.toLowerCase().
-            includes(prompt.toLowerCase())
+          students.first_name.toLowerCase().includes(prompt.toLowerCase()) || students.last_name.toLowerCase().includes(prompt.toLowerCase()) || students.id.toLowerCase().includes(prompt.toLowerCase())
           );
       }
     );
