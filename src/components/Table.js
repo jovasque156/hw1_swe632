@@ -1,7 +1,7 @@
 // Table.js
 //from: 
-import React, {useMemo, Fragment} from "react";
-import {Table, Row, Col, Button, Input } from 'reactstrap';
+import React, {Fragment} from "react";
+import { Row, Col, Button, Input } from 'reactstrap';
 import { useTable, useSortBy, usePagination } from "react-table";
 
 import '../css/table.css'
@@ -18,7 +18,6 @@ const TableContainer = ({columns, data}) => {
     // rows, -> we change 'rows' to 'page'
     page,
     prepareRow,
-    visibleColumns,
     // below new props related to 'usePagination' hook
     canPreviousPage,
     canNextPage,
@@ -56,7 +55,7 @@ const TableContainer = ({columns, data}) => {
   */
   return (
 
-    
+
 
     <Fragment>
       <table {...getTableProps()}>

@@ -1,9 +1,8 @@
-import React, { useEffect, useState, useMemo, useTable } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Helmet } from "react-helmet";
 import MenuTab from "../components/MenuTab";
 import projectStyles from "../css/style.module.css";
 import styles from "../css/home.module.css";
-import { Component } from "react/cjs/react.development";
 import {levels} from "../assets/levels_risks";
 import {columns_student} from "../assets/columns_table_student";
 import STUDENTS from "../assets/students_fake.json";
@@ -38,16 +37,7 @@ const Monitoring = () => {
     let final = data.filter(students => {
         return(
           students.
-            first_name.
-            toLowerCase().
-            includes(prompt.toLowerCase()) || 
-          students.
-            last_name.
-            toLowerCase().
-            includes(prompt.toLowerCase()) ||
-          students.
-            id.
-            toLowerCase().
+            first_name.toLowerCase().includes(prompt.toLowerCase()) || students.last_name.toLowerCase().includes(prompt.toLowerCase()) || students.id.toLowerCase().
             includes(prompt.toLowerCase())
           );
       }
@@ -58,10 +48,7 @@ const Monitoring = () => {
   const FilterDataProgram = (prompt) => {
     let final = data.filter(students => {
           return(
-            students.
-              program.
-              toLowerCase().
-              includes(prompt.toLowerCase())
+            students.program.toLowerCase().includes(prompt.toLowerCase())
             );
         }
       );
@@ -105,19 +92,6 @@ const Monitoring = () => {
     // setDataSet(test)
   }
 
-  const handleOnChange = (position) => {
-    const updatedCheckedState = checkedState.map((item, index) =>
-                                                   index === position ? !item : item
-                                                );
-    setCheckedState(updatedCheckedState)
-    console.log(updatedCheckedState)
-  }
-
-  const list_students = [
-    {id:1, name: 'Jonathan', program: 'IC', risk: 89},
-    {id:2, name: 'Pilar', program: 'IC', risk: 20},
-  ]
-
   return (
     <div className={styles["container"]}>
       <Helmet>
@@ -132,7 +106,7 @@ const Monitoring = () => {
         </div>
         <div className={styles["menu_containers"]}>
           <img
-            alt="profile picture"
+            alt="profile"
             src="https://images.unsplash.com/photo-1562159278-1253a58da141?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDIyfHxtYW4lMjBwb3J0dHJhaXR8ZW58MHx8fHwxNjI3MjkzNTM1&amp;ixlib=rb-1.2.1&amp;h=1000"
             className={styles["image_profile"]}
           />
