@@ -1,0 +1,114 @@
+.container {
+    width: 100%;
+    display: flex;
+    overflow: auto;
+    min-height: 100vh;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+  }
+  .Header {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    padding: var(--dl-space-space-twounits);
+    align-self: flex-start;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--dl-color-gray-900);
+  }
+  .menu_containers {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+  .image_profile {
+    width: var(--dl-size-size-small);
+    height: var(--dl-size-size-small);
+    object-fit: cover;
+    border-radius: var(--dl-radius-radius-round);
+  }
+  .text_profile {
+    font-size: 1.15rem;
+    font-style: normal;
+    font-weight: 600;
+  }
+  .section {
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+    padding: var(--dl-space-space-twounits);
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .menu_filter {
+    flex: 0 0 auto;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    list-style-type: disc;
+    list-style-image: none;
+    list-style-position: outside;
+    margin-bottom: var(--dl-space-space-unit);
+  }
+  .Input {
+    width: 358px;
+    height: 37px;
+    padding: 0.5rem;
+    font-size: 14px;
+    border-radius: var(--dl-radius-radius-radius4);
+    list-style-type: disc;
+    background-color: #ffffff;
+  }
+  .group_filterby {
+    width: 779px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .group_checkboxes {
+    width: 380px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .checkbox {
+    align-self: center;
+  }
+  .label_checkbox_med {
+    color: var(--dl-color-mediumrisk-500);
+    align-self: center;
+    margin-left: var(--dl-space-space-halfunit);
+  }
+  .label_checkbox_high {
+    color: var(--dl-color-highrisk-500);
+    align-self: center;
+    margin-left: var(--dl-space-space-halfunit);
+  }
+  .label_checkbox_low {
+    color: var(--dl-color-lowrisk-500);
+    align-self: center;
+    margin-left: var(--dl-space-space-halfunit);
+  }
+  @media (max-width: 850px) {
+    .image {
+      margin-left: 0px;
+    }
+    .group_filterby {
+      width: 100%;
+      align-items: flex-start;
+      flex-direction: column;
+    }
+    .group_checkboxes {
+      margin-top: var(--dl-space-space-unit);
+      margin-right: 0px;
+    }
+  }
+  
