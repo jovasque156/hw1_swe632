@@ -5,13 +5,11 @@ import { HashRouter, Routes, Route } from "react-router-dom";
 import Monitoring from "./views/monitoring";
 
 ReactDOM.render(
-  <React.StrictMode>
   <HashRouter>
     <Routes>
       <Route path='/' element={<Monitoring />}/>
     </Routes>
   </HashRouter>
-  </React.StrictMode>
   ,
   document.getElementById('root')
 );
