@@ -1,15 +1,10 @@
-// Table.js
-//from: 
 import React, {Fragment} from "react";
 import { Row, Col, Button, Input } from 'reactstrap';
-import { useTable, useSortBy, usePagination } from "react-table";
+import { useTable, useSortBy, usePagination, useBlockLayout, useResizeColumns } from "react-table";
 
 import '../css/table.css'
 
 const TableContainer = ({columns, data}) => {
-  // Use the useTable Hook to send the columns and data to build the table
-  // const columns = useMemo(() => columns_student, [])
-  // const data = useMemo(() => STUDENTS, [])
 
   const {
     getTableProps,
@@ -31,10 +26,20 @@ const TableContainer = ({columns, data}) => {
   } = useTable({
     columns,
     data,
-    initialState: { pageIndex: 0, pageSize: 10 }
+    initialState: { pageIndex: 0, 
+                    pageSize: 10,
+                    sortBy: [
+                      {
+                        id: 'risk',
+                        desc: true
+                      }
+                    ]
+                  }
   },
     useSortBy,
     usePagination,
+    useBlockLayout,
+    useResizeColumns
   );
 
   const onChangeInSelect = event => {
@@ -85,8 +90,7 @@ const TableContainer = ({columns, data}) => {
         </tbody>
       </table>
       
-      <Row style={{ maxWidth: 1000, margin: "0 auto", textAlign: "center" }}>
-    <Col md={3}>
+    <Row style={{margin: "0 auto", textAlign: "center" }}>
       <Button
         color="primary"
         onClick={() => gotoPage(0)}
@@ -101,22 +105,26 @@ const TableContainer = ({columns, data}) => {
       >
         {"<"}
       </Button>
-    </Col>
-    <Col md={2} style={{ marginTop: 7 }}>
-      Page{" "}
+    Page{" "}
       <strong>
         {pageIndex + 1} of {pageOptions.length}
       </strong>
-    </Col>
-    <Col md={2}>
-      <Input
-        type="number"
-        min={1}
-        style={{ width: 70 }}
-        max={pageOptions.length}
-        defaultValue={pageIndex + 1}
-        onChange={onChangeInInput}
-      />
+
+      <Button color="primary"
+        onClick={nextPage}
+        disabled={!canNextPage}>
+        {">"}
+      </Button>
+      <Button
+        color="primary"
+        onClick={() => gotoPage(pageCount - 1)}
+        disabled={!canNextPage}
+      >
+        {">>"}
+      </Button>
+    {/* </Col> */}
+    <Col md={2} style={{ marginTop: 7 }}>
+
     </Col>
     <Col md={2}>
       <Input type="select" value={pageSize} onChange={onChangeInSelect}>
@@ -127,18 +135,6 @@ const TableContainer = ({columns, data}) => {
           </option>
         ))}
       </Input>
-    </Col>
-    <Col md={3}>
-      <Button color="primary" onClick={nextPage} disabled={!canNextPage}>
-        {">"}
-      </Button>
-      <Button
-        color="primary"
-        onClick={() => gotoPage(pageCount - 1)}
-        disabled={!canNextPage}
-      >
-        {">>"}
-      </Button>
     </Col>
   </Row>
 

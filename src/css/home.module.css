@@ -72,6 +72,14 @@
     flex-direction: row;
     justify-content: space-between;
   }
+  .group_resultsby {
+    width: 250px;
+    display: flex;
+    align-items: left;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: var(--dl-space-space-unit);
+  }
   .group_checkboxes {
     width: 380px;
     display: flex;
@@ -96,6 +104,9 @@
     color: var(--dl-color-lowrisk-500);
     align-self: center;
     margin-left: var(--dl-space-space-halfunit);
+  }.highlight {
+    background-color: #cf2626;
+    transition: all 0.5s ease-in-out;
   }
   @media (max-width: 850px) {
     .image {
